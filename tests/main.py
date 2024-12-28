@@ -1,13 +1,13 @@
 import logging
 from pathlib import Path
-from poly import import_js
+from fromjs import import_js
 
 # Configure logging to see the function calls
 logging.basicConfig(level=logging.INFO)
 
 def main():
     try:
-        # Make sure to use the correct path to your example.js file
+        # Path to your javascript file
         script_dir = Path(__file__).parent
         js_file = script_dir / "example.js"
         js_module = import_js(js_file)
@@ -28,6 +28,7 @@ def main():
 
         # Test Async function
         data = js_module.fetchData('https://google.com')
+        print(f"Fetch Data Response: {data}")
 
 
     except FileNotFoundError as e:
